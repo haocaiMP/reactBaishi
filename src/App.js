@@ -7,6 +7,7 @@ import Slide from './components/Slide';
 import Banner from './components/Banner';
 import Title from './components/Title';
 import Row from './components/Row';
+import News from './components/News';
 // import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/pie';
 import 'echarts/lib/component/tooltip';
@@ -46,6 +47,7 @@ class App extends Component {
             <Title title='百世实验室'/>
             <Row />
             <Title title='最新发生的事'/>
+            <News />
           </main>
           
           {/* <div style={{position:'relative',top:'500px',background:'red',margin:'10px',border:'1px solid transparent'}}>
