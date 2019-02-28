@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 
-import './App.css';
 import NavBar from './components/NavBar';
 import Slide from './components/Slide';
 import Banner from './components/Banner';
@@ -13,6 +11,33 @@ import 'echarts/lib/chart/pie';
 import 'echarts/lib/component/tooltip';
 import { BrowserRouter as Router} from 'react-router-dom'
 import 'echarts/lib/component/title';
+import FootImg from './assets/img/footer.png'
+import FootBg from './assets/img/footerBg.jpg'
+import './App.css';
+const style = {
+  footer: {
+    display: 'block',
+    width: '100%',
+    background: `url(${FootBg})`,
+    height: '306px',
+    position: 'relative',
+    top: '530px'
+  },
+  img: {
+    display: 'block',
+    height: '306px',
+    width: '990px',
+    margin: '0 auto'
+  }
+}
+const Footer = () => {
+  return (
+    <div style={style.footer}>
+      <img src={FootImg} alt="" style={style.img}/>
+    </div>
+  )
+  
+}
 class App extends Component {
   // componentDidMount() {
   //   var myChart = echarts.init(document.getElementById('chart'));
@@ -49,10 +74,7 @@ class App extends Component {
             <Title title='最新发生的事'/>
             <News />
           </main>
-          
-          {/* <div style={{position:'relative',top:'500px',background:'red',margin:'10px',border:'1px solid transparent'}}>
-            <p style={{background:'yellow',margin:'20px'}}>dsafasfasfsa</p>
-          </div> */}
+          <Footer />
           {/* <header className="App-header"> */}
             {/* <img src={logo} className="App-logo" alt="logo" /> */}
             {/* <div ref={chart => this.chart = chart} id="chart" style={{width:370, height:375}}></div>
