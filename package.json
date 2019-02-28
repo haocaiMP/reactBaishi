@@ -2,6 +2,7 @@
   "name": "react-demo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "echarts": "^4.2.0-rc.2",
     "moment": "^2.24.0",
