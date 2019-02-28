@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
 }
 
 .App-logo {
@@ -8,7 +11,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -29,4 +32,58 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.main {
+  width: 980px;
+  position: relative;
+  top: 510px;
+  margin: 0 auto;
+  background: #fff;
+}
+.big_title {
+  width: 980px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  margin-top: 20px;
+  position: relative;
+}
+.big_title span{
+  display: inline-block;
+  padding: 0 10px;
+}
+.big_title::before {
+  content: '';
+  width: 43%;
+  height: 1px;
+  background-color: #666;
+  position: absolute;
+  left: 0;
+  top: 30px;
+}
+.big_title::after {
+  content: '';
+  width: 43%;
+  height: 1px;
+  background-color: #666;
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
+.row {
+  width: 980px;
+  display: flex;
+  justify-content: center;
+  height: 290px;
+}
+.row img {
+  width: 480px;
+  height: 290px;
+}
+.video {
+  display: block;
+  object-fit: fill;
+  width: 500px;
+  height: 290px;
 }

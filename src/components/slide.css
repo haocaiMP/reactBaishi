@@ -1,0 +1,63 @@
+ol, ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.slidebox, .slidebox ul, .slidebox ul li{
+  width: 100%;
+  height: 500px;
+  min-width: 980px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slidebox ul li:nth-child(1) {
+  background: url('../assets/img/1.jpg') top center no-repeat;
+}
+.slidebox ul li:nth-child(2) {
+  background: url('../assets/img/2.jpg') top center no-repeat;
+}
+.slidebox ul li:nth-child(3) {
+  background: url('../assets/img/3.jpg') top center no-repeat;
+}
+.slidebox ul li:nth-child(4) {
+  background: url('../assets/img/4.jpg') top center no-repeat;
+}
+
+.slidebox ol {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 6;
+}
+.slidebox ol li {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.active {
+  z-index: 1;
+  animation: opt 0.2s ease-in;
+}
+.red {
+  background-color: #ff6460;
+}
+.white {
+  background-color: #fff;
+}
+@-webkit-keyframes opt {
+  0% {
+    opacity: .9;
+  }
+  100% {
+    opacity: 1;
+  }
+}

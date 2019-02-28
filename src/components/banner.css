@@ -1,0 +1,51 @@
+
+.banner {
+  width: 980px;
+  height: 175px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.banner_li {
+  width: 25%;
+  position: relative;
+}
+.li_bg {
+  width: 150px;
+  height: 175px;
+  margin: 0 auto;
+  background-size: 100% 100%;
+  transform: rotateZ(0);
+  transform-origin: 50% 50%;
+  transition: all .3s ease-out;
+}
+.li_bg.active {
+  transform: rotateZ(90deg);
+}
+.li_title {
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-180%)
+}
+.li_img {
+  display: block;
+  width: 80px;
+  height: 65px;
+  transform: rotate(0);
+  transform-origin: 50% 50%;
+  transition: all .3s ease-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-20%)
+}
+.li_img.act {
+  transform: translate(-30%,5%) rotate(-45deg);
+  width: 120px;
+  height: 100px;
+}
