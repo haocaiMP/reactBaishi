@@ -105,7 +105,7 @@ export default class Banner extends Component {
     return tree
   }
   onMouseEnter(index) {
-    console.log(index)
+    // console.log(index)
     let list = [...this.state.list]
     list[index].hover = true
     this.setState({

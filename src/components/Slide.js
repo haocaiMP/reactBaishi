@@ -5,8 +5,7 @@ export default class Slide extends Component {
     super()
     this.state = {
       arr:[0,1,2,3],
-      index: 0,
-      timer: null
+      index: 0
     }
     this.onClick = this.onClick.bind(this);
   }
@@ -14,7 +13,6 @@ export default class Slide extends Component {
     this.autoplay()
   }
   autoplay = () => {
-    
     this.timer = setInterval(()=>{
       // let i = this.state.index;
       // i++;
@@ -27,8 +25,6 @@ export default class Slide extends Component {
           index: this.state.index+1
         })
       }
-      
-      // console.log(i)
     }, 3500)
   }
   onClick = (i) => {
@@ -39,9 +35,10 @@ export default class Slide extends Component {
     })
   }
   componentWillUnmount() {
-    this.setState({
-      timer: null
-    })
+    clearInterval(this.timer)
+    // this.setState = (state, callback) => {
+    //   return;
+    // };
   }
   render() {
     const { index, arr } = this.state;

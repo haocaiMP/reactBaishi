@@ -13,15 +13,19 @@ ol, ul, li {
 }
 .slidebox ul li:nth-child(1) {
   background: url('../assets/img/1.jpg') top center no-repeat;
+  /* background-size: cover; */
 }
 .slidebox ul li:nth-child(2) {
   background: url('../assets/img/2.jpg') top center no-repeat;
+  /* background-size: cover; */
 }
 .slidebox ul li:nth-child(3) {
   background: url('../assets/img/3.jpg') top center no-repeat;
+  /* background-size: cover; */
 }
 .slidebox ul li:nth-child(4) {
   background: url('../assets/img/4.jpg') top center no-repeat;
+  /* background-size: cover; */
 }
 
 .slidebox ol {
