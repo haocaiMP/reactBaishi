@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { Router, Link, Switch, Route } from 'react-router-dom'
+import { HashRouter as Router, Link, Switch, Route } from 'react-router-dom'
 // import Child from './Child';
 import Home from './home';
 import Mailing from './mailing';
 import Moment from 'moment';
 import Logo from '../assets/img/logo.png';
-import createBrowserHistory from 'history/createBrowserHistory';
+// import createHashHistory from 'history/createHashHistory';
 import './navbar.css';
-const history = createBrowserHistory();
+// const history = createHashHistory();
 // const Title = ({match}) => {
 //   return <div className='title'>{match.params.name}</div>
 // };
@@ -54,23 +54,27 @@ class NavBar extends Component {
   componentDidMount() {
     
     // console.log(window.location.pathname);
-    var pathname = window.location.pathname;
+    var hash = window.location.hash;
     var dom = document.querySelector('.nav').querySelectorAll('li');
     
     this.state.list.forEach((item) => {
-      if(item.link === pathname) {
+      let link = `#${item.link}`;
+      if(link === hash) {
         console.log(dom[item.id - 1].offsetLeft)
         this.navLine.style.width = dom[item.id - 1].offsetWidth - 20 + 'px';
         this.navLine.style.left = dom[item.id - 1].offsetLeft + 195 + 'px';
         // this.navLine.style.left = this.refs.list1.offsetLeft + 10 + 'px';
       }
     })
-    history.listen((route) => {
-      console.log(route)
-      if(route.pathname === '/') {
+    window.onhashchange = () => {
+      // console.log(window.location)
+    }
+    // history.listen((route) => {
+    //   console.log(route)
+    //   if(route.pathname === '/') {
         
-      }
-    })
+    //   }
+    // })
     console.log(Moment().format('M,D,Y'))
   }
   onMouseEnter(i,e) {
@@ -78,10 +82,11 @@ class NavBar extends Component {
     this.navLine.style.left = e.target.offsetLeft + 195 + 'px';
   }
   onMouseLeave() {
-    var pathname = window.location.pathname;
+    var hash = window.location.hash;
     var dom = document.querySelector('.nav').querySelectorAll('li');
     this.state.list.forEach((item) => {
-      if(item.link === pathname) {
+      let link = `#${item.link}`;
+      if(link === hash) {
         this.navLine.style.width = dom[item.id - 1].offsetWidth - 20 + 'px';
         this.navLine.style.left = dom[item.id - 1].offsetLeft + 195 + 'px';
       }
@@ -91,7 +96,8 @@ class NavBar extends Component {
   render() {
     const { list } = this.state;
     return (
-      <Router history={history}>
+      // history={history}
+      <Router >
         <div className='navbox'> 
             <div className='box'>
               <img src={Logo} alt="" className='logo'/>

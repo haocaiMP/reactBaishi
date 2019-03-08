@@ -5,7 +5,7 @@ import 'antd/dist/antd.css'
 import './bd.css'
 const formItemLayout = {
   labelCol: { span: 4 },
-  wrapperCol: { span: 16 },
+  wrapperCol: { span: 8 },
 };
 const formItemLayoutFirst = {
   labelCol: { span: 4 },
