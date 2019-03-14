@@ -1,11 +1,8 @@
-.head_img {
-  width: 100%;
-  height: 200px;
-  background: url('../../assets/img/order-inner-bg.jpg') top center no-repeat;
-}
+
 .mailing_box {
   width: 980px;
   margin: 0 auto;
+  margin-top: 20px;
 }
 .mb_title {
   display: flex;

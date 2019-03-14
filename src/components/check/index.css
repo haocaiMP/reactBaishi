@@ -1,0 +1,62 @@
+
+.check_box {
+  width: 980px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-bottom: 150px;
+}
+.cb_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+}
+.icon-danjuchaxun {
+  font-size: 28px;
+  color: #0085ff;
+}
+.cb_main {
+  border: 1px solid #aaa;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+}
+.cm_left {
+  width: 820px;
+  border-right: 1px solid #aaa;
+  text-align: left;
+  padding-bottom: 10px;
+}
+.cl_text {
+  width: 800px;
+  outline: none;
+  resize: none;
+  margin-left: 10px;
+  min-height: 100px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border-color: #bbb;
+  text-indent: 10px;
+  padding-top: 15px;
+  
+}
+.cl_btn {
+  border: none;
+  background: #d0d0d0;
+  color: #b9b9b9;
+  padding: 10px 30px;
+  border-radius: 6px;
+  margin-top: 30px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+
+.cm_right {
+  width: 150px;
+  padding-left: 10px;
+  padding-top: 20px;
+  text-align: left;
+  font-weight: 600
+}

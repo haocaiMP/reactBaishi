@@ -3,8 +3,12 @@ import { HashRouter as Router, Link, Switch, Route } from 'react-router-dom'
 // import Child from './Child';
 import Home from './home';
 import Mailing from './mailing';
+import Check from './check';
+import Dot from './dot';
+import Help from './help';
 import Moment from 'moment';
 import Logo from '../assets/img/logo.png';
+import store from '../store';
 // import createHashHistory from 'history/createHashHistory';
 import './navbar.css';
 // const history = createHashHistory();
@@ -52,10 +56,8 @@ class NavBar extends Component {
     }
   }
   componentDidMount() {
-    
-    // console.log(window.location.pathname);
-    var hash = window.location.hash;
-    var dom = document.querySelector('.nav').querySelectorAll('li');
+    let hash = window.location.hash;
+    let dom = document.querySelector('.nav').querySelectorAll('li');
     
     this.state.list.forEach((item) => {
       let link = `#${item.link}`;
@@ -67,7 +69,38 @@ class NavBar extends Component {
       }
     })
     window.onhashchange = () => {
-      // console.log(window.location)
+      let hash = window.location.hash;
+      switch (hash) {
+        case '#/jijian':
+          const action1 = {
+            type: 'JIJIAN',
+            value: {top: '210px'}
+          }
+          store.dispatch(action1);
+          break;
+        case '#/chajian':
+          const action2 = {
+            type: 'CHAJIAN',
+            value: {transform: 'translateX(360%)',top: '250px'}
+          }
+          store.dispatch(action2);
+          break;
+        case '#/wangdian':
+        case '#/help':
+          const action3 = {
+            type: 'JIJIAN',
+            value: {display: 'none'}
+          }
+          store.dispatch(action3);
+          break;
+        default:
+          const action = {
+            type: 'HOME',
+            value: {top: '290px'}
+          }
+          store.dispatch(action);
+          break;
+      }
     }
     // history.listen((route) => {
     //   console.log(route)
@@ -77,6 +110,7 @@ class NavBar extends Component {
     // })
     console.log(Moment().format('M,D,Y'))
   }
+
   onMouseEnter(i,e) {
     this.navLine.style.width = e.target.offsetWidth - 20 + 'px';
     this.navLine.style.left = e.target.offsetLeft + 195 + 'px';
@@ -119,6 +153,9 @@ class NavBar extends Component {
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/jijian' component={Mailing} />
+              <Route path='/chajian' component={Check} />
+              <Route path='/wangdian' component={Dot} />
+              <Route path='/help' component={Help} />
               {/* {
                 list.map((item,index) => {
                   return (

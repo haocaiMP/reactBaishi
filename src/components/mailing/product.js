@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Form, Checkbox, Select, Input } from 'antd';
-import 'antd/dist/antd.css'
 import './bd.css'
 const { Option } = Select;
 const formItemLayout = {

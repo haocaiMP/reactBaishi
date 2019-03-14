@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import Bd from './Bd';
 import Product from './product';
 import { Form, Button, Select } from 'antd';
-import Footer from '../Footer'
+import Footer from '../Footer';
+import Header from '../Header';
 import './index.css'
 import Beautify from '../../assets/img/onlineSevice1.png'
 import WxImg from '../../assets/img/wxxcxCreateOrder.jpg'
+import bgImg from '../../assets/img/order-inner-bg.jpg'
 const ButtonGroup = Button.Group;
 const { Option } = Select;
 const formItemLayout = {
@@ -55,7 +57,7 @@ export default class Mailing extends Component {
     const { active } = this.state;
     return (
       <div style={{position:'relative',top:'-80px',backgroundColor: '#f7f7f7'}}>
-        <div className='head_img'></div>
+        <Header bgImg={bgImg}/>
         <div className='mailing_box'>
           <h2 className='mb_title'>
             <i className='iconfont icon-icon-'></i>

@@ -3,23 +3,16 @@ import React, { Component } from 'react';
 // import Home from './components/home'
 import NavBar from './components/NavBar'
 // import echarts from 'echarts/lib/echarts';
-import 'echarts/lib/chart/pie';
-import 'echarts/lib/component/tooltip';
-// import { BrowserRouter as Router} from 'react-router-dom'
-import 'echarts/lib/component/title';
+// import 'echarts/lib/chart/pie';
+// import 'echarts/lib/component/tooltip';
+// import 'echarts/lib/component/title';
 import './App.css';
+import 'antd/dist/antd.css';
 import ServImg from './assets/img/onlineSevice.png'
+import { connect } from 'react-redux';
 class App extends Component {
-  constructor(p) {
-    super(p);
-    this.state = {
-      active: true
-    }
-  }
+
   componentDidMount() {
-    if(window.location.pathname !== '/') {
-      
-    }
     // var myChart = echarts.init(document.getElementById('chart'));
     // myChart.setOption({
     //   title: {text: '商品展示'},
@@ -51,11 +44,22 @@ class App extends Component {
             {/* <div ref={chart => this.chart = chart} id="chart" style={{width:370, height:375}}></div>
           </header> */}
         </div>
-        <img src={ServImg} alt="" className='serv_img' style={this.state.active ? {top: '295px'} : {top:'220px'}}/>
+        <img src={ServImg} alt="" className='serv_img' style={this.props.style_img}/>
       </div>
       
     );
   }
 }
+const mapStateToProps = (store) => {
+  return {
+    style_img: store.routes
+  }
+};
 
-export default App;
+// 发送行为,会在props中拿到
+const mapDispatchToProps = (dispatch) => {
+  return {
+      
+  }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(App);;
