@@ -6,6 +6,8 @@ import Mailing from './mailing';
 import Check from './check';
 import Dot from './dot';
 import Help from './help';
+import News from './news/index.js';
+import Product from './product';
 import Moment from 'moment';
 import Logo from '../assets/img/logo.png';
 import store from '../store';
@@ -47,7 +49,8 @@ class NavBar extends Component {
       },{
         id: 7,
         name: '企业服务',
-        link: '/company'
+        link: '/company',
+        hover: true
       },{
         id: 8,
         name: '帮助中心',
@@ -57,12 +60,13 @@ class NavBar extends Component {
   }
   componentDidMount() {
     let hash = window.location.hash;
+    this.position(hash);
     let dom = document.querySelector('.nav').querySelectorAll('li');
     
     this.state.list.forEach((item) => {
       let link = `#${item.link}`;
       if(link === hash) {
-        console.log(dom[item.id - 1].offsetLeft)
+        // console.log(dom[item.id - 1].offsetLeft)
         this.navLine.style.width = dom[item.id - 1].offsetWidth - 20 + 'px';
         this.navLine.style.left = dom[item.id - 1].offsetLeft + 195 + 'px';
         // this.navLine.style.left = this.refs.list1.offsetLeft + 10 + 'px';
@@ -70,37 +74,7 @@ class NavBar extends Component {
     })
     window.onhashchange = () => {
       let hash = window.location.hash;
-      switch (hash) {
-        case '#/jijian':
-          const action1 = {
-            type: 'JIJIAN',
-            value: {top: '210px'}
-          }
-          store.dispatch(action1);
-          break;
-        case '#/chajian':
-          const action2 = {
-            type: 'CHAJIAN',
-            value: {transform: 'translateX(360%)',top: '250px'}
-          }
-          store.dispatch(action2);
-          break;
-        case '#/wangdian':
-        case '#/help':
-          const action3 = {
-            type: 'JIJIAN',
-            value: {display: 'none'}
-          }
-          store.dispatch(action3);
-          break;
-        default:
-          const action = {
-            type: 'HOME',
-            value: {top: '290px'}
-          }
-          store.dispatch(action);
-          break;
-      }
+      this.position(hash)
     }
     // history.listen((route) => {
     //   console.log(route)
@@ -110,12 +84,52 @@ class NavBar extends Component {
     // })
     console.log(Moment().format('M,D,Y'))
   }
-
+  position(hash) {
+    switch (hash) {
+      case '#/jijian':
+        const action1 = {
+          type: 'JIJIAN',
+          value: {top: '210px'}
+        }
+        store.dispatch(action1);
+        break;
+      case '#/chajian':
+        const action2 = {
+          type: 'CHAJIAN',
+          value: {transform: 'translateX(360%)',top: '250px'}
+        }
+        store.dispatch(action2);
+        break;
+      case '#/wangdian':
+      case '#/news':
+      case '#/product':
+      case '#/help':
+        const action3 = {
+          type: 'JIJIAN',
+          value: {display: 'none'}
+        }
+        store.dispatch(action3);
+        break;
+      default:
+        const action = {
+          type: 'HOME',
+          value: {top: '290px'}
+        }
+        store.dispatch(action);
+        break;
+    }
+  }
   onMouseEnter(i,e) {
+    if(i === 6) {
+      e.target.querySelector('.hover').style.display = 'block';
+    }
     this.navLine.style.width = e.target.offsetWidth - 20 + 'px';
     this.navLine.style.left = e.target.offsetLeft + 195 + 'px';
   }
-  onMouseLeave() {
+  onMouseLeave(i) {
+    if(i === 6) {
+      document.querySelector('.hover').style.display = 'none';
+    }
     var hash = window.location.hash;
     var dom = document.querySelector('.nav').querySelectorAll('li');
     this.state.list.forEach((item) => {
@@ -141,10 +155,27 @@ class NavBar extends Component {
               {
                 // to={`${item.link}/${item.name}`}
                 list.map((item,index)=>{
-                  return (<li key={item.id} 
-                    ref={`list${item.id}`}
-                    onMouseEnter={this.onMouseEnter.bind(this,index)} 
-                    onMouseLeave={this.onMouseLeave.bind(this)}><Link to={item.link} >{item.name}</Link></li>)
+                  
+                  return (
+                    item.hover ? 
+                    <li key={item.id} 
+                      ref={`list${item.id}`}
+                      onMouseEnter={this.onMouseEnter.bind(this,index)} 
+                      onMouseLeave={this.onMouseLeave.bind(this,index)} className='li_hover'>
+                      <Link disabled to={item.link} >{item.name}</Link> 
+                      <div className='hover'>
+                        <a href='http://www.800best.com/express/partner/' target="_blank" rel="noopener noreferrer">加盟合作</a>
+                        <a href='http://www.800bestex.com/static/Index/70EBB44ADC5E52ED' target="_blank" rel="noopener noreferrer">采购招标</a>
+                      </div>
+                    </li> :
+                    <li key={item.id} 
+                      ref={`list${item.id}`}
+                      onMouseEnter={this.onMouseEnter.bind(this,index)} 
+                      onMouseLeave={this.onMouseLeave.bind(this,index)}>
+                      <Link to={item.link} >{item.name}</Link> 
+                      
+                    </li>
+                  ) 
                 })
               }
               </ul>
@@ -155,7 +186,13 @@ class NavBar extends Component {
               <Route path='/jijian' component={Mailing} />
               <Route path='/chajian' component={Check} />
               <Route path='/wangdian' component={Dot} />
+              {/* <Route path='/company' render={()=>{
+                window.open('http://www.800best.com/express/partner/')
+              }} /> */}
+              <Route path='/product' component={Product} />
+              <Route path='/news' component={News} />
               <Route path='/help' component={Help} />
+
               {/* {
                 list.map((item,index) => {
                   return (

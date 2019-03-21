@@ -1,0 +1,139 @@
+p {
+  margin: 0;
+}
+.pro_box {
+  width: 980px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-bottom: 50px;
+}
+.pb_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  position: relative;
+}
+
+.icon-chanpinfuwu {
+  font-size: 28px;
+  color: #0085ff;
+}
+.pb_main {
+  border: 1px solid #aaa;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  /* padding-bottom: 30px; */
+}
+.pm_h {
+  width: 100%;
+  border-bottom: 1px solid #aaa;
+  line-height: 60px;
+  font-size: 20px;
+}
+.pm_h span {
+  color: #0085ff;
+  margin-left: 15px;
+}
+.pm_common {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 289px;
+  border-bottom: 1px solid #aaa;
+}
+.pm_common p {
+  text-align: left;
+  margin: 0;
+}
+.pm_l, .pm_r{
+  flex: 1;
+}
+.gn {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+.gn_l, .gn_r {
+  display: flex;
+  flex-direction: row; 
+}
+.gn_l p {
+  width: 80px;
+  font-size: 20px;
+}
+.gn_r p {
+  width: 80px;
+  font-size: 15px;
+}
+.gn_r .hr {
+  margin-left: -10px;
+}
+.pm_color {
+  background-color: #fafafa;
+}
+.pm_2_l p {
+  padding-left: 100px;
+  font-size: 15px;
+}
+.li {
+  line-height: 24px;
+  color: #a7a7a7;
+}
+.pm_3 {
+  height: 427px;
+}
+.pm_4 {
+  height: 357px;
+}
+.pm_5 {
+  height: 319px;
+}
+.pm_6 {
+  height: 303px;
+}
+.pm_7 {
+  height: 332px;
+}
+.pm_4_l , .pm_5_r, .pm_7_r{
+  text-align: left;
+}
+.pm_4_l button {
+  margin-left: 100px;
+}
+.pm_8_h {
+  font-size: 20px;
+  line-height: 60px;
+  text-align: left;
+  padding-left: 60px;
+  margin-top: 20px;
+}
+.pm_8 {
+  padding-bottom: 20px;
+}
+.pm_8_con {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.pc_l {
+  border-right: 1px solid #aaa;
+}
+.pc_r {
+  margin-left: 35px;
+}
+.ant-popover-inner {
+  box-shadow: none;
+  border: 1px solid #0085ff;
+}
+.ant-popover-arrow {
+  border-right-color: #0085ff!important;
+  border-bottom-color: #0085ff!important;
+  background: #fff;
+  border-width: 1px;
+}

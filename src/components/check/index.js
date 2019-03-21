@@ -27,7 +27,7 @@ export default class Check extends Component {
                   onBlur={this.onBlur}></textarea>
                 <button disabled className='cl_btn'>查询</button>
               </div>
-              <div className='cm_right'>最后查询: <a href="javascript: void(0);">暂无</a> </div>
+              <div className='cm_right'>最后查询: <a href="http://www.800bestex.com/">暂无</a> </div>
             </div>
         </div>
         <Footer />

@@ -34,6 +34,9 @@ class App extends Component {
     //   }]
     // })
   }
+  go = () => {
+    window.open('https://webcs.800best.com/index.html', 'webcs', 'width=750,height=600,toolbar=no, menubar=no, scrollbars=no, resizable=yes,location=no, status=no,center=yes');
+  }
   render() {
     return (
       <div>
@@ -44,7 +47,7 @@ class App extends Component {
             {/* <div ref={chart => this.chart = chart} id="chart" style={{width:370, height:375}}></div>
           </header> */}
         </div>
-        <img src={ServImg} alt="" className='serv_img' style={this.props.style_img}/>
+        <img src={ServImg} alt="" className='serv_img' style={this.props.style_img} onClick={this.go}/>
       </div>
       
     );

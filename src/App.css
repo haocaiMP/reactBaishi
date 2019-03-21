@@ -13,6 +13,7 @@
   top: 290px;
   left: 50%;
   transform: translateX(-485%);
+  cursor: pointer;
   z-index: 888;
 }
 header {

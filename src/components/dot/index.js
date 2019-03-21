@@ -7,7 +7,7 @@ import echarts from 'echarts';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
 import 'echarts/map/js/china';
-import geoJson from 'echarts/map/json/china.json';
+// import geoJson from 'echarts/map/json/china.json';
 
 
 export default class index extends Component {
