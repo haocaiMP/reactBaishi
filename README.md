@@ -8,11 +8,11 @@ react + redux + react-redux + react-router-dom
 
 ## 你可以这样使用
 
-`git clone `
+`git clone https://github.com/haocaiMP/reactBaishi.git`
 
 `npm install`
 
-`npm start`  启动项目,浏览界面
+`npm start`     启动项目,浏览界面
 
-`npm build`  打包项目
+`npm build`     打包项目
 
