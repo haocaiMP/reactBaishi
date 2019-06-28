@@ -21,7 +21,7 @@ class NavBar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      // hover: false,
+      flag: false,
       list: [{
         id: 1,
         name: '首页',
@@ -62,18 +62,21 @@ class NavBar extends Component {
     let hash = window.location.hash;
     this.position(hash);
     let dom = document.querySelector('.nav').querySelectorAll('li');
-    
+
+    console.log(dom[1].offsetLeft)
     this.state.list.forEach((item) => {
       let link = `#${item.link}`;
       if(link === hash) {
         // console.log(dom[item.id - 1].offsetLeft)
         this.navLine.style.width = dom[item.id - 1].offsetWidth - 20 + 'px';
-        this.navLine.style.left = dom[item.id - 1].offsetLeft + 195 + 'px';
+        this.navLine.style.left = dom[item.id - 1].offsetLeft + 446 + 'px';
         // this.navLine.style.left = this.refs.list1.offsetLeft + 10 + 'px';
       }
     })
+
     window.onhashchange = () => {
       let hash = window.location.hash;
+      console.log(hash)
       this.position(hash)
     }
     // history.listen((route) => {
@@ -124,7 +127,7 @@ class NavBar extends Component {
       e.target.querySelector('.hover').style.display = 'block';
     }
     this.navLine.style.width = e.target.offsetWidth - 20 + 'px';
-    this.navLine.style.left = e.target.offsetLeft + 195 + 'px';
+    this.navLine.style.left = e.target.offsetLeft + 446 + 'px';
   }
   onMouseLeave(i) {
     if(i === 6) {
@@ -136,7 +139,7 @@ class NavBar extends Component {
       let link = `#${item.link}`;
       if(link === hash) {
         this.navLine.style.width = dom[item.id - 1].offsetWidth - 20 + 'px';
-        this.navLine.style.left = dom[item.id - 1].offsetLeft + 195 + 'px';
+        this.navLine.style.left = dom[item.id - 1].offsetLeft + 446 + 'px';
       }
     })
   }
@@ -155,7 +158,6 @@ class NavBar extends Component {
               {
                 // to={`${item.link}/${item.name}`}
                 list.map((item,index)=>{
-                  
                   return (
                     item.hover ? 
                     <li key={item.id} 
